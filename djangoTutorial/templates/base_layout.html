@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        #logo {
+            max-width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header><a href="{% url 'articles:list' %}"><img src="{% static 'django-logo.png' %}" alt="list" id="logo"></a>
+        </header>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

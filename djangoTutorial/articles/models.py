@@ -8,9 +8,12 @@ class Article(models.Model):
     slug = models.SlugField()
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
-
+    thumb = models.ImageField(default='default.png', blank=True)
     # add in thumbail later
     # add in author later
 
     def __str__(self):
         return self.title
+
+    def snippet(self):
+        return self.body[:50] + '...'
