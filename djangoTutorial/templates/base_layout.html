@@ -9,6 +9,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico'%}" />
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <style>
         #logo {
@@ -19,7 +20,24 @@
 
 <body>
     <div class="wrapper">
-        <header><a href="{% url 'articles:list' %}"><img src="{% static 'django-logo.png' %}" alt="list" id="logo"></a>
+        <header>
+            <a href="{% url 'articles:list' %}"><img src="{% static 'django-logo.png' %}" alt="list" id="logo"></a>
+            <nav>
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" name="button">Logout</button>
+                        </form>
+                    </li>
+                    <li><a href="{% url 'articles:create' %}" class="highlight">New Article</a></li>
+                    {% else %}
+                    <li><a href="{% url 'accounts:login'%}" class="highlight">Login</a></li>
+                    <li><a href="{% url 'accounts:signup'%}" class="highlight">Signup</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
         </header>
         {% block content %}
         {% endblock %}
