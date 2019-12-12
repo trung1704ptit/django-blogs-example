@@ -27,7 +27,7 @@ h5 {
 a,
 a:hover,
 a:visited {
-    color: #fff;
+    color: var(--main);
     text-decoration: none;
 }
 
@@ -77,17 +77,20 @@ nav button {
     grid-gap: 30px;
 }
 
+.articles .article {
+    border: 1px solid var(--main);
+}
+
 .article {
     padding: 10px;
-    border: 1px solid var(--main);
     border-radius: 4px;
     position: relative;
     padding-bottom: 40px;
     cursor: pointer;
 }
 
-.article:hover .title {
-    color: var(--main)
+.articles .article:hover .title {
+    color: rgb(136, 2, 18);
 }
 
 .article h2 {
@@ -113,6 +116,22 @@ nav button {
     margin: 0;
     border-top-left-radius: 4px;
     color: #0f121f;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.text {
+    color: var(--main)
+}
+
+.createdby {
+    text-align: right;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.w-100 {
+    width: 100%;
 }
 
 .site-form {
@@ -194,4 +213,8 @@ a.highlight {
 
 .helptext {
     display: none;
+}
+
+input[type="submit"] {
+    cursor: pointer;
 }

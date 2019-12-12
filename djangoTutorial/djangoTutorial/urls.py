@@ -12,6 +12,7 @@ urlpatterns = [
     path('articles/', include('articles.urls')),
     path('accounts/', include('accounts.urls')),
     path('about/', views.about),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', article_views.article_list)
 ]
 
